@@ -40,7 +40,7 @@ def ask_claude(content: str, mode: str):
 # ── UI ──────────────────────────────────────
 st.title("📚 Study Buddy")
 st.caption("ถ่ายรูปสมุด หรือวางข้อความ แล้วให้ AI ช่วยทบทวน")
-
+st.caption("ทดลองใช้ติดต่อ ig: suphasan.sh")
 
 
 pwd = st.text_input("รหัสผ่าน", type="password")
