@@ -41,7 +41,6 @@ def ask_claude(content: str, mode: str):
 st.title("📚 Study Buddy")
 st.caption("ถ่ายรูปสมุด หรือวางข้อความ แล้วให้ AI ช่วยทบทวน")
 
-pwd = st.text_input("รหัสผ่าน", type="password")
 
 
 pwd = st.text_input("รหัสผ่าน", type="password")
