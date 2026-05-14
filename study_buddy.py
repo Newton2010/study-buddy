@@ -40,6 +40,9 @@ def ask_claude(content: str, mode: str):
 st.title("📚 Study Buddy")
 st.caption("ถ่ายรูปสมุด หรือวางข้อความ แล้วให้ AI ช่วยทบทวน")
 
+pwd = st.text_input("รหัสผ่าน", type="password")
+if pwd != "friendstudy2024":
+    st.stop()
 
 image = st.camera_input("ถ่ายรูป") or st.file_uploader("หรืออัปโหลดรูป", type=["jpg","png"])
 text = st.text_area("หรือวางข้อความบทเรียน", height=150)
