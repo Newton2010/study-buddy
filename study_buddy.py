@@ -38,7 +38,7 @@ def ask_claude(content: str, mode: str):
     return message.content[0].text
 
 # ── UI ──────────────────────────────────────
-st.title("📚 Study Buddy")
+st.title("📚 Friend Study")
 st.caption("ถ่ายรูปสมุด หรือวางข้อความ แล้วให้ AI ช่วยทบทวน")
 st.caption("ทดลองใช้ติดต่อ ig: suphasan.sh")
 
