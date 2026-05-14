@@ -28,7 +28,7 @@ Return Only valid JSON in this exact format, no other text:
 
 def ask_claude(content: str, mode: str):
     message = client.messages.create(
-        model="claude-haiku-4-5",
+        model="claude-sonnet-4-5",
         max_tokens=2000,
         temperature=0.7,
         system=PROMPTS[mode],
