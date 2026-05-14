@@ -38,14 +38,57 @@ def ask_claude(content: str, mode: str):
 
 # ── UI ──────────────────────────────────────
 st.title("📚 Study Buddy")
+st.caption("ถ่ายรูปสมุด หรือวางข้อความ แล้วให้ AI ช่วยทบทวน")
 
-content = st.text_area("วางบทเรียนของคุณ", height=200)
-mode = st.selectbox("เลือก mode", list(PROMPTS.keys()))
 
-if st.button("ส่ง"):
-    if not content.strip():
-        st.warning("กรุณาวางบทเรียนก่อน")
+image = st.camera_input("ถ่ายรูป") or st.file_uploader("หรืออัปโหลดรูป", type=["jpg","png"])
+text = st.text_area("หรือวางข้อความบทเรียน", height=150)
+mode = st.radio("เลือก mode", ["flashcard", "summary", "explain"], horizontal=True)
+
+if st.button("สร้างเลย ✨"):
+    # เช็คว่ามี input อะไรบ้าง
+    if not text and not image:
+        st.warning("กรุณาวางบทเรียนหรืออัปโหลดรูปก่อนครับ")
     else:
         with st.spinner("กำลังคิด..."):
-            result = ask_claude(content, mode)
-        st.write(result)
+            
+            if image:
+                import base64
+                image_data = base64.standard_b64encode(image.read()).decode("utf-8")
+                message = client.messages.create(
+                    model="claude-haiku-4-5",
+                    max_tokens=2000,
+                    system=PROMPTS[mode],
+                    messages=[{
+                        "role": "user",
+                        "content": [
+                            {
+                                "type": "image",
+                                "source": {
+                                    "type": "base64",
+                                    "media_type": "image/jpeg",
+                                    "data": image_data
+                                }
+                            },
+                            {"type": "text", "text": "สร้างจากรูปนี้"}
+                        ]
+                    }]
+                )
+                result = message.content[0].text
+            
+            # ถ้ามีแค่ข้อความ
+            else:
+                result = ask_claude(text, mode)
+
+        # แสดงผล
+        if mode == "flashcard":
+            import json
+            try:
+                cards = json.loads(result)["flashcards"]
+                for i, card in enumerate(cards, 1):
+                    with st.expander(f"ข้อ {i}: {card['question']}"):
+                        st.write(card["answer"])
+            except:
+                st.write(result)
+        else:
+            st.write(result)
