@@ -157,11 +157,12 @@ if st.button("สร้างเลย ✨"):
         # แสดงผล
         if mode == "flashcard":
             try:
-               clean = result.replace("```json", "").replace("```", "").strip()
-               cards = json.loads(result)["flashcards"]
-               st.markdown(f"### 🃏 Flashcards ({len(cards)} ใบ)")
-               show_flashcards(cards)
-            except:
-                 st.write(result)
+                clean = result.strip()
+                cards = json.loads(clean)["flashcards"]
+                st.markdown(f"### 🃏 Flashcards ({len(cards)} ใบ)")
+                show_flashcards(cards)
+            except Exception as e:
+                st.error(f"Parse error: {e}")  # เปลี่ยนจาก st.write เป็น st.error
+                st.write(result)
         else:
             st.write(result)
