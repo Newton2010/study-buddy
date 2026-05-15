@@ -38,11 +38,11 @@ def ask_claude(content: str, mode: str):
         messages=[{"role": "user", "content": content}]
     )
     return message.content[0].text
-ช
+
 def show_flashcards(cards):
     cards_json = json.dumps(cards, ensure_ascii=False)
     html = f"""
-<style>
+    <style>
   * {{ box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }}
   .grid {{ display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 8px; }}
   .scene {{ height: 140px; perspective: 600px; cursor: pointer; }}
