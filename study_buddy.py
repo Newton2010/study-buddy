@@ -183,10 +183,10 @@ def show_about():
 """, height=1100, scrolling=False)
 
 # ── Navigation ──
-page = st.sidebar.radio("", ["เกี่ยวกับเรา","เรียน",])
+page = st.sidebar.radio("", ["เกี่ยวกับเรา", "เรียน",])
 
 # ── About Page ──
-if page == "ℹ️ เกี่ยวกับ":
+if page == "เกี่ยวกับเรา":
     show_about()
 
 # ── Study Page ──
