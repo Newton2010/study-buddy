@@ -192,7 +192,6 @@ if page == "เรา?":
 else:
     st.title("📚 Friend Study For Everybody")
     st.caption("ถ่ายรูปสมุด หรือวางข้อความ แล้วให้ AI ช่วยทบทวน")
-    st.caption("ทดลองใช้ติดต่อ ig: suphasan.sh")
 
     # จำกัด 3 ครั้งต่อ session
     if "count" not in st.session_state:
