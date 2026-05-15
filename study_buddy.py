@@ -106,7 +106,7 @@ cards.forEach((card, i) => {{
     components.html(html, height=len(cards) * 90 + 60, scrolling=False)
 
 # ── UI ──────────────────────────────────────
-st.title("📚 Friend Study")
+st.title("📚 Friend Study For Everybody")
 st.caption("ถ่ายรูปสมุด หรือวางข้อความ แล้วให้ AI ช่วยทบทวน")
 st.caption("ทดลองใช้ติดต่อ ig: suphasan.sh")
 
