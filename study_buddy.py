@@ -171,7 +171,7 @@ def show_about():
     <div>
       <div class="founder-name">Suphasan</div>
       <div class="founder-role">Founder</div>
-      <div class="founder-quote">"สร้างเพราะอยากให้ตัวเองและเพื่อนทบทวนบทเรียนได้ง่ายขึ้น — หาอะไรทำครับ"</div>
+      <div class="founder-quote">"ชาเขียว หรือ ชานม ?"</div>
     </div>
   </div>
   <div class="contact">
@@ -182,10 +182,10 @@ def show_about():
 """, height=1100, scrolling=False)
 
 # ── Navigation ──
-page = st.sidebar.radio("", ["เกี่ยวกับเรา", "เรียน",])
+page = st.sidebar.radio("", ["เรียน", "เรา?"])
 
 # ── About Page ──
-if page == "เกี่ยวกับเรา":
+if page == "เรา?":
     show_about()
 
 # ── Study Page ──
