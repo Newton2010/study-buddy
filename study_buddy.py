@@ -194,9 +194,16 @@ else:
     st.caption("ถ่ายรูปสมุด หรือวางข้อความ แล้วให้ AI ช่วยทบทวน")
     st.caption("ทดลองใช้ติดต่อ ig: suphasan.sh")
 
-    pwd = st.text_input("รหัสผ่าน", type="password")
-    if pwd != os.getenv("APP_PASSWORD"):
+    # จำกัด 3 ครั้งต่อ session
+    if "count" not in st.session_state:
+        st.session_state.count = 0
+
+    if st.session_state.count >= 3:
+        st.warning("ใช้ครบ 3 ครั้งแล้วครับ 😊")
+        st.info("อยากใช้เพิ่ม ติดต่อ ig: suphasan.sh")
         st.stop()
+
+    st.caption(f"เหลือ {3 - st.session_state.count} ครั้ง")
 
     image = st.camera_input("ถ่ายรูป") or st.file_uploader("หรืออัปโหลดรูป", type=["jpg","png"])
     text = st.text_area("หรือวางข้อความบทเรียน", height=150)
@@ -231,6 +238,9 @@ else:
                     result = message.content[0].text
                 else:
                     result = ask_claude(text, mode)
+
+            # นับครั้ง
+            st.session_state.count += 1
 
             if mode == "flashcard":
                 try:
