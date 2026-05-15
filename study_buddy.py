@@ -157,6 +157,7 @@ if st.button("สร้างเลย ✨"):
         # แสดงผล
         if mode == "flashcard":
             try:
+                st.write(f"DEBUG: '{result[:50]}'")
                 clean = result.strip()
                 cards = json.loads(clean)["flashcards"]
                 st.markdown(f"### 🃏 Flashcards ({len(cards)} ใบ)")
