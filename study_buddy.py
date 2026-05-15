@@ -141,7 +141,6 @@ def show_about():
     <div class="badge">✨ AI-powered study tool</div>
     <h1>Friend Study</h1>
     <p>ผู้ช่วย AI ที่เปลี่ยนบทเรียนยากๆ ให้เข้าใจง่าย — แค่ถ่ายรูปสมุดหรือวางข้อความ แล้ว AI จะทำทุกอย่างให้</p>
-    <a class="btn" href="https://friendstudy.streamlit.app" target="_blank">🔗 ทดลองใช้ฟรี</a>
   </div>
   <div class="divider"></div>
   <div class="label">สิ่งที่ทำได้</div>
@@ -170,9 +169,9 @@ def show_about():
   <div class="founder">
     <div class="avatar">N</div>
     <div>
-      <div class="founder-name">Newton</div>
-      <div class="founder-role">Founder · นักเรียน ม.4</div>
-      <div class="founder-quote">"สร้างเพราะอยากให้ตัวเองและเพื่อนทบทวนบทเรียนได้ง่ายขึ้น — ใช้เวลาสร้างไม่กี่อาทิตย์ตอน ม.4"</div>
+      <div class="founder-name">Suphasan</div>
+      <div class="founder-role">Founder</div>
+      <div class="founder-quote">"สร้างเพราะอยากให้ตัวเองและเพื่อนทบทวนบทเรียนได้ง่ายขึ้น — หาอะไรทำครับ"</div>
     </div>
   </div>
   <div class="contact">
