@@ -193,14 +193,8 @@ else:
     st.title("📚 Friend Study For Everybody")
     st.caption("ถ่ายรูปสมุด หรือวางข้อความ แล้วให้ AI ช่วยทบทวน")
 
-    # จำกัด 3 ครั้งต่อ session
-    if "count" not in st.session_state:
-        st.session_state.count = 0
 
-    if st.session_state.count >= 3:
-        st.warning("ใช้ครบ 3 ครั้งแล้วครับ 😊")
-        st.info("อยากใช้เพิ่ม ติดต่อ ig: suphasan.sh")
-        st.stop()
+
 
     st.caption(f"เหลือ {3 - st.session_state.count} ครั้ง")
 
