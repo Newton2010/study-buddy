@@ -196,7 +196,7 @@ else:
 
 
 
-    st.caption(f"เหลือ {3 - st.session_state.count} ครั้ง")
+
 
     image = st.camera_input("ถ่ายรูป") or st.file_uploader("หรืออัปโหลดรูป", type=["jpg","png"])
     text = st.text_area("หรือวางข้อความบทเรียน", height=150)
